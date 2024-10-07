@@ -1,10 +1,12 @@
-import { useState } from "react";
-import "./App.css";
+import { FC } from "react";
+import AddTodoItem from "./containers/AddTodoItem";
 
-function App() {
-  const [count, setCount] = useState(0);
-
-  return <>{count}</>;
+const App: FC = () => {
+  return(
+    <main>
+      <AddTodoItem />
+    </main>
+  );
 }
 
 export default App;

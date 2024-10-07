@@ -6,7 +6,7 @@ interface IButtonProps {
   onClickHandler: () => void;
 }
 
-const Button: FC<IButtonProps> = ({ className, children, onClickHandler }) => {
+const Button: FC<IButtonProps> = ({ className, onClickHandler, children }) => {
   return (
     <button className={className} onClick={onClickHandler}>
       {children}

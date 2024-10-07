@@ -2,30 +2,32 @@ import { FC, ChangeEvent } from "react";
 import Button from "./Button";
 import TextBox from "./TextBox";
 
-interface IAddTodoItemProps {
-  onClickHandler: () => void;
+interface IAddTodoFormProps {
+  onButtonClickHandler: () => void;
   onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
   value: string;
 }
 
-const AddTodoItem: FC<IAddTodoItemProps> = ({
-  onClickHandler,
+const AddTodoForm: FC<IAddTodoFormProps> = ({
+  onButtonClickHandler,
   onChange,
   value,
 }) => {
   return (
-    <section>
+    <section className="addTodo">
+      { value } <br />
       <TextBox
         placeholder="Add new todo"
         name="addTodo"
         onChange={onChange}
         value={value}
       />
-      <Button className="primary" onClickHandler={onClickHandler}>
+      <br />
+      <Button className="primary" onClickHandler={onButtonClickHandler}>
         Add Todo
       </Button>
     </section>
   );
 };
 
-export default AddTodoItem;
+export default AddTodoForm;

@@ -1,5 +1,5 @@
 import { Reducer, Action, UnknownAction } from 'redux';
-import { ADD_TODO, MARK_TODO_COMPLETE } from './actionCreator.ts';
+import { ADD_TODO, MARK_TODO_COMPLETE, TOGGLE_TODO } from './actionCreator.ts';
 
 export type TodoState = 'draft' | 'completed';
 
@@ -63,6 +63,24 @@ const TodoReducer: Reducer<IState, IAction> = (state = initialState, action: IAc
                 }
             }
             return state;
+        }
+
+        case TOGGLE_TODO: {
+            if (action.todoId && typeof action.todoId === 'number') {
+                return {
+                    todos: {
+                        ...state.todos,
+                        todoById: {
+                            ...state.todos.todoById,
+                            [action.todoId]: {
+                                ...state.todos.todoById[action.todoId],
+                                state: state.todos.todoById[action.todoId].state === 'draft' ? 'completed' : 'draft'
+                            }
+                        }
+                    }
+                }
+            }
+            return state
         }
 
         default:

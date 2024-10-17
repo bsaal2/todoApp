@@ -1,0 +1,7 @@
+span.completed {
+    text-decoration: line-through;
+}
+
+li {
+    padding: 5px 0
+}

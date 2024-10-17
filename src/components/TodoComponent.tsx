@@ -5,17 +5,22 @@ import './TodoComponent.css';
 
 interface ITodo {
     todo: Todo
-    onClickHandler: (event: MouseEvent, id: number) => void
+    onClickHandler: (event: MouseEvent<HTMLButtonElement>, id: number) => void
 }
 
-const TodoComponent: FC<ITodo> = ({ todo, onClickHandler }) => (
-    <li>
+const TodoComponent: FC<ITodo> = ({ todo, onClickHandler }) => {
+    const buttonLabel = todo.state === 'draft' ? 'Mark complete' : 'Reset';
+
+    return <li>
         <span className={todo.state}>
-          {todo.name}     
+          {todo.name} {todo.state}
         </span>
         {' '}
-        { todo.state === 'draft' && <Button className='complete-state' onClickHandler={(event: MouseEvent) => onClickHandler(event, todo.id)}>Mark as complete</Button> }
+        <Button className='complete-state' 
+            onClickHandler={(event: MouseEvent<HTMLButtonElement>) => onClickHandler(event, todo.id)}>
+                { buttonLabel }
+        </Button>
     </li>
-);
+};
 
 export default TodoComponent;

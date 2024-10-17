@@ -1,15 +1,19 @@
 import { FC, useState, ChangeEvent } from 'react';
+import { useDispatch } from 'react-redux';
 import AddTodoForm from '../components/AddTodoForm';
+import { addTodo } from '../redux/actionCreator.ts';
+import { IAction } from '../redux/reducer.ts';
 
 const AddTodoItem: FC = () => {
     const [todo, setTodo] = useState<string>('');
+    const dispatch = useDispatch();
 
     const onButtonClickHandler = () => {
-        console.log('clicked button');
+        dispatch<IAction>(addTodo({ name: todo, state: 'draft' }));
+        setTodo('');
     }
 
     const onInputChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-        console.log('on input change', event);
         setTodo(event.target.value);
     }
 

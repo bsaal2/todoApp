@@ -1,9 +1,9 @@
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, MouseEvent } from "react";
 
 interface IButtonProps {
   className: string;
   children: ReactNode;
-  onClickHandler: () => void;
+  onClickHandler: (event: MouseEvent, data?: any) => void;
 }
 
 const Button: FC<IButtonProps> = ({ className, onClickHandler, children }) => {

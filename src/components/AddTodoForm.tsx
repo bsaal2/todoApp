@@ -15,7 +15,8 @@ const AddTodoForm: FC<IAddTodoFormProps> = ({
 }) => {
   return (
     <section className="addTodo">
-      { value } <br />
+      <h1>Add new todo</h1>
+      { value && <p>{ value }</p> }
       <TextBox
         placeholder="Add new todo"
         name="addTodo"

@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+      "target": "ES2020",
+      "lib": ["ES2020", "DOM", "DOM.Iterable"],
+      "module": "ESNext",
+      "skipLibCheck": true,
+      "moduleResolution": "node", // Jest works with Node-style resolution
+      "allowSyntheticDefaultImports": true,
+      "esModuleInterop": true,
+      "jsx": "react-jsx", // Ensure JSX is handled in tests
+      "noEmit": true, // No need to emit files during tests
+  
+      /* Linting */
+      "strict": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "noFallthroughCasesInSwitch": true
+    },
+    "include": ["src", "tests"] // Adjust to include your test files
+  }
+  
